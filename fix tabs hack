@@ -1,0 +1,10 @@
+No breaking tabs on translated pages:
+
+Open:
+/opt/tvpweb/components/com_twojtoolbox/plugins/tabs/1803/twoj_tabs_plugin.php
+
+Find around line 292:
+$this->tabs_header_html .= ' <div class="twoj_tab_block_a_index
+
+Replace by:
+$this->tabs_header_html .= ' <div class="twoj_tab_block_a_index notranslate
