@@ -1,0 +1,25 @@
+Open: /opt/tvpweb/components/com_community/views/register/view.html.php
+
+Find around line 119:
+			$table	= JTable::getInstance( 'MultiProfile' , 'CTable' );
+			$table->load( $profile->id );
+			
+Replace by:
+			$table	= JTable::getInstance( 'MultiProfile' , 'CTable' );
+			$table->load('1');
+			
+Find around line 125:
+			if( $table->approvals )
+				$showNotice	= true;
+
+			$profileTypes[]	= $table;
+		}
+		
+Replace by:
+			if( $table->approvals )
+				$showNotice	= true;
+
+			$profileTypes[]	= $table;
+      break;
+		}
+echo "<p>If you're an officially registered Point of Contact for a local/regional TVPActivism Team, An Official Project Coordinator, or Administrator, or Currently a volunteer on one of the official projects, please email us at webmaster@thevenusproject.com with your full name, username and position and we will upgrade your profile accordingly.</p>";
