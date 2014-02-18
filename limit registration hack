@@ -22,4 +22,4 @@ Replace by:
 			$profileTypes[]	= $table;
       break;
 		}
-echo "<p>If you're an officially registered Point of Contact for a local/regional TVPActivism Team, An Official Project Coordinator, or Administrator, or Currently a volunteer on one of the official projects, please email us at webmaster@thevenusproject.com with your full name, username and position and we will upgrade your profile accordingly.</p>";
+echo "<p><b>IMPORTANT:</b> You have to select the \"Supporter\" profile type, click on the \"Next\" button, then fill out the next page and reach to the end of the registration process, otherwise you will not be able to log in.</p><p>Note: If you're an officially registered Point of Contact for a local/regional TVPActivism team, an official Project Coordinator, or Administrator, or currently a volunteer on one of the official projects, please email us at webmaster@thevenusproject.com with your full name, username and position and we will upgrade your profile accordingly.</p><br /><h4>Select Profile Type:</h4>";
