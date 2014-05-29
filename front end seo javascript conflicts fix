@@ -1,0 +1,33 @@
+Open plugins/system/easyfrontendseo/easyfrontendseo.php
+
+Find:
+                $js .= "window.addEvent('domready', function(e){
+                                $('modal').addEvent('click', function(e){
+                                e.stop();
+                                var EFSEO = new SimpleModal({'width':600, 'height':400, 'offsetTop': 10,'onAppend':function(){".$this->counterCode()."}});
+                                    EFSEO.addButton('".JText::_('PLG_EASYFRONTENDSEO_CANCEL')."', 'btn');
+                                    EFSEO.show({
+                                        'model':'modal',
+                                        'title':'Easy Frontend SEO - Joomla!',
+                                        'contents':'".$this->buildForm($head['title'], $head['description'], $head['keywords'], $head['generator'], $head['robots'])."'
+                                    });
+                                });
+                            });";
+            }
+
+
+Replace by:
+
+                $contentsstring = str_replace("'", "", ($this->buildForm($head['title'], $head['description'], $head['keywords'], $head['generator'], $head['robots'])));
+                $js .= "jQuery( document ).ready(function() {
+                                jQuery('#modal').click(function() {
+                                var EFSEO = new SimpleModal({'width':600, 'height':400, 'offsetTop': 10,'onAppend':function(){".$this->counterCode()."}});
+                                    EFSEO.addButton('".JText::_('PLG_EASYFRONTENDSEO_CANCEL')."', 'btn');
+                                    EFSEO.show({
+                                        'model':'modal',
+                                        'title':'Easy Frontend SEO - Joomla!',
+                                        'contents': '".$contentsstring."'
+                                    });
+                                });
+                            });";
+            }
