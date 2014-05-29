@@ -1,0 +1,7 @@
+Open plugins/system/azrul.system/pc_includes/ajax.php
+
+Find:
+var jax_live_site = '$reqURI';
+
+Replace by:
+var jax_live_site = '/';
