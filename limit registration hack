@@ -1,4 +1,4 @@
-Open: /opt/tvpweb/components/com_community/views/register/view.html.php
+Open: /components/com_community/views/register/view.html.php
 
 Find around line 119:
 			$table	= JTable::getInstance( 'MultiProfile' , 'CTable' );
@@ -22,4 +22,17 @@ Replace by:
 			$profileTypes[]	= $table;
       break;
 		}
-echo "<p><b>IMPORTANT:</b> You have to select the \"Supporter\" profile type, click on the \"Next\" button, then fill out the next page and reach to the end of the registration process, otherwise you will not be able to log in.</p><p>Note: If you're an officially registered Point of Contact for a local/regional TVPActivism team, an official Project Coordinator, or Administrator, or currently a volunteer on one of the official projects, please email us at webmaster@thevenusproject.com with your full name, username and position and we will upgrade your profile accordingly.</p><br /><h4>Select Profile Type:</h4>";
+
+
+Open: /components/com_community/controllers/register.php
+
+Find around line 563:
+			$profileType = JRequest::getInt('profileType', 0);
+			
+Replace by:	
+			
+			$profileType = JRequest::getInt('profileType', 0);
+		
+			//remove the "Upload avatar" step since we don't need it for the Sci & Tech database
+			//we just set a redirect to the Registration Success page
+			$mainframe->redirect(CRoute::_('index.php?option=com_community&view=register&task=registerSucess&profileType=' . $profileType, false));
